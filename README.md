@@ -41,7 +41,7 @@ Nesta primeira fase, o grupo atuou como **Cientista de Dados Hospitalar**. O foc
 
 * **Descrição e Origem**: O dataset numérico, com mais de 100 linhas, foi compilado para simular dados de pacientes com foco em saúde cardiovascular. Ele contém variáveis como idade, sexo, pressão arterial (sistólica e diastólica), colesterol, histórico familiar de doenças cardíacas e frequência cardíaca. As informações são fictícias, criadas para a finalidade deste projeto acadêmico.
 
-* **Link para o Dataset**: [Insira o link público do seu Google Drive/OneDrive aqui]
+* **Link para o Dataset**: [https://drive.google.com/file/d/1A8RgDcJegtEAq41ApoB67SSJTOjWMBmU/view?usp=sharing](https://drive.google.com/file/d/1A8RgDcJegtEAq41ApoB67SSJTOjWMBmU/view?usp=sharing)
 
 * **Relevância Clínica e para a IA**: A escolha dessas variáveis é estratégica para a IA, pois são indicadores-chave de risco cardiovascular. Modelos de Machine Learning podem ser treinados com esses dados para identificar padrões e prever a probabilidade de eventos cardíacos. A governança de dados é crucial aqui; a qualidade e a veracidade dos dados de entrada (mesmo que simulados) são fundamentais para garantir que os modelos de IA não gerem vieses ou diagnósticos imprecisos no futuro.
 
@@ -51,7 +51,7 @@ Nesta primeira fase, o grupo atuou como **Cientista de Dados Hospitalar**. O foc
 
 * **Caminho no Repositório**: Os arquivos de texto estão localizados em `assets/docs/`.
 
-* **Relevância Clínica e para a IA**: A análise desses textos por meio de técnicas de Processamento de Linguagem Natural (NLP) é essencial. A IA pode ser usada para:
+* **Relevância Clínica e para a IA**: A análise de textos médicos por meio de técnicas de Processamento de Linguagem Natural (NLP) é essencial. A IA pode ser usada para:
     * **Extração de Sintomas**: Identificar termos e frases que descrevem sintomas para automatizar a triagem.
     * **Classificação de Tópicos**: Organizar a vasta literatura médica para facilitar a pesquisa e a tomada de decisão clínica.
     * **Análise de Sentimentos**: Entender a percepção do paciente ou a gravidade dos relatos de saúde em documentos como prontuários.
@@ -63,7 +63,7 @@ Nesta primeira fase, o grupo atuou como **Cientista de Dados Hospitalar**. O foc
 * **Link para as Imagens**: [Insira o link público do seu Google Drive/OneDrive aqui]
 
 * **Relevância Clínica e para a IA**: A Visão Computacional (VC) será fundamental para o projeto. Com essas imagens, algoritmos de VC podem ser treinados para:
-    * **Detecção de Padrões**: Identificar anormalidades e arritmias em ECGs.
+    * **Detecção de Padrões**: Reconhecer anomalias e arritmias em ECGs.
     * **Identificação de Bordas**: Mapear a silhueta do coração em um raio-X para detectar cardiomegalia.
     * **Reconhecimento de Anomalias**: Identificar padrões que indicam doenças em exames, auxiliando a equipe médica no diagnóstico.
 
