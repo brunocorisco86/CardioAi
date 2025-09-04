@@ -47,7 +47,11 @@ Nesta primeira fase, o grupo atuou como **Cientista de Dados Hospitalar**. O foc
 
 ### **2. Dados Textuais (NLP)**
 
-*   **Descrição e Origem**: Foram selecionados quatro artigos científicos e reportagens em formato `.txt`, obtidos de fontes acadêmicas e de saúde pública, como SciELO e bases de dados governamentais. Os textos abordam diferentes dimensões das doenças cardiovasculares (DCV) no Brasil, incluindo epidemiologia, fatores de risco, o impacto psicossocial nos pacientes e a evolução histórica da pesquisa cardiológica no país.
+*   **Descrição e Origem**: Foram selecionados quatro artigos científicos em formato `.txt`, obtidos de fontes acadêmicas e de saúde pública. Os textos abordam diferentes dimensões das doenças cardiovasculares (DCV) no Brasil. Os trabalhos incluídos são:
+    *   **"Epidemiologia das Doenças Cardiovasculares no Brasil: A Verdade Escondida nos Números"**: Discute a epidemiologia das DCV no Brasil, abordando a importância e os desafios da coleta de dados de mortalidade para a criação de políticas de saúde.
+    *   **"Fatores associados às doenças cardiovasculares na população adulta brasileira"**: Investiga a prevalência e os fatores sociodemográficos, de saúde e de estilo de vida associados ao diagnóstico de DCV na população adulta do Brasil, com base na Pesquisa Nacional de Saúde de 2019.
+    *   **"Fatores psicossociais associados à doença cardíaca e manejo clínico psicológico"**: Explora a percepção de psicólogos e pacientes sobre os fatores psicossociais (como estresse e depressão) ligados às cardiopatias e as possibilidades de manejo psicológico.
+    *   **"Prevalência das Doenças Cardíacas Ilustrada em 60 Anos dos Arquivos Brasileiros de Cardiologia"**: Analisa a evolução das publicações científicas sobre doenças cardíacas ao longo de 60 anos para refletir as tendências e a prevalência dessas doenças no Brasil.
 
 *   **Caminho no Repositório**: Os arquivos de texto estão localizados na pasta `assets/`.
 
