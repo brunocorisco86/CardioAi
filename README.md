@@ -47,14 +47,26 @@ Nesta primeira fase, o grupo atuou como **Cientista de Dados Hospitalar**. O foc
 
 ### **2. Dados Textuais (NLP)**
 
-* **Descrição e Origem**: Foram selecionados dois artigos em formato `.txt` de fontes como SciELO para simular textos médicos. Os arquivos abordam tópicos como sintomas de doenças cardíacas, tratamentos e saúde pública relacionada à cardiologia.
+*   **Descrição e Origem**: Foram selecionados quatro artigos científicos e reportagens em formato `.txt`, obtidos de fontes acadêmicas e de saúde pública, como SciELO e bases de dados governamentais. Os textos abordam diferentes dimensões das doenças cardiovasculares (DCV) no Brasil, incluindo epidemiologia, fatores de risco, o impacto psicossocial nos pacientes e a evolução histórica da pesquisa cardiológica no país.
 
-* **Caminho no Repositório**: Os arquivos de texto estão localizados em `assets/docs/`.
+*   **Caminho no Repositório**: Os arquivos de texto estão localizados na pasta `assets/`.
 
-* **Relevância Clínica e para a IA**: A análise de textos médicos por meio de técnicas de Processamento de Linguagem Natural (NLP) é essencial. A IA pode ser usada para:
-    * **Extração de Sintomas**: Identificar termos e frases que descrevem sintomas para automatizar a triagem.
-    * **Classificação de Tópicos**: Organizar a vasta literatura médica para facilitar a pesquisa e a tomada de decisão clínica.
-    * **Análise de Sentimentos**: Entender a percepção do paciente ou a gravidade dos relatos de saúde em documentos como prontuários.
+*   **Relevância e Exploração com NLP**: Os textos fornecem uma base rica para a aplicação de algoritmos de Processamento de Linguagem Natural (NLP), gerando insights valiosos para um projeto de IA em saúde. A relevância está na capacidade de transformar dados não estruturados (texto) em informações acionáveis para profissionais de saúde, pesquisadores e gestores.
+
+    *   **Extração de Informações (Information Extraction) e Entidades (NER)**: Os artigos contêm uma vasta quantidade de dados clínicos e epidemiológicos. Um modelo de IA pode ser treinado para identificar e extrair automaticamente:
+        *   **Condições e Sintomas**: "insuficiência cardíaca", "infarto agudo do miocárdio", "hipertensão", "diabetes".
+        *   **Fatores de Risco**: "tabagismo", "sedentarismo", "estresse", "obesidade abdominal".
+        *   **Dados Estatísticos**: Prevalência ("5,3%"), mortalidade ("18,6 milhões"), fatores de risco associados (Razão de Prevalência - RP).
+        *   **Justificativa**: Essa extração automatizada é crucial para popular bancos de dados, construir painéis epidemiológicos em tempo real e auxiliar na identificação de perfis de risco em prontuários eletrônicos.
+
+    *   **Modelagem de Tópicos (Topic Modeling)**: Com a grande quantidade de literatura médica disponível, algoritmos como o Latent Dirichlet Allocation (LDA) podem analisar os textos e agrupá-los em temas centrais, como "Políticas de Saúde Pública", "Fatores Psicossociais", "Tratamento e Manejo Clínico" e "Fatores de Risco Sociodemográficos".
+        *   **Justificativa**: Isso permite que pesquisadores e médicos naveguem de forma eficiente pelo conhecimento existente, identifiquem tendências de pesquisa e encontrem rapidamente artigos relevantes para suas áreas de interesse.
+
+    *   **Análise de Sentimentos**: O texto sobre fatores psicossociais descreve emoções e percepções dos pacientes ("medo", "ansiedade", "frustração", "desamparo"). Um modelo de análise de sentimentos poderia quantificar essas percepções em larga escala, analisando, por exemplo, relatos de pacientes em fóruns online ou anotações em prontuários.
+        *   **Justificativa**: Compreender o impacto emocional da doença é fundamental para o manejo clínico integral do paciente. A IA pode ajudar a identificar pacientes que necessitam de suporte psicológico, melhorando a adesão ao tratamento e a qualidade de vida.
+
+    *   **Sumarização Automática**: Os artigos são densos e extensos. Algoritmos de sumarização podem criar resumos concisos, destacando os principais objetivos, métodos e conclusões de cada estudo.
+        *   **Justificativa**: Para médicos com tempo limitado, a sumarização automática acelera o acesso a evidências científicas, apoiando a tomada de decisão clínica baseada em informações atualizadas.
 
 ### **3. Dados Visuais (Visão Computacional)**
 
