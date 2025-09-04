@@ -84,7 +84,7 @@ Nesta primeira fase, o grupo atuou como **Cientista de Dados Hospitalar**. O foc
 
 *   **Link para as Imagens**: [https://github.com/alphanumericslab/ecg-image-kit/tree/main/sample-data/ecg-images](https://github.com/alphanumericslab/ecg-image-kit/tree/main/sample-data/ecg-images)
   
-*   **Imagens fonte Complementar (Google Drive)**: [Link para o Google Drive](https://drive.google.com/drive/folders/1Q4JwGnt5m5cCo0OJoQPVVP7BS6pkjcJo?usp=drive_link)
+*   **Fonte Complementar (Google Drive)**: [Link para o Google Drive](https://drive.google.com/drive/folders/1Q4JwGnt5m5cCo0OJoQPVVP7BS6pkjcJo?usp=drive_link)
 
 *   **Relevância e Exploração com Visão Computacional**: Imagens de ECG são fundamentais para o diagnóstico de uma vasta gama de condições cardíacas. A aplicação de algoritmos de Visão Computacional (VC) sobre esses dados permite automatizar e escalar a análise, trazendo grande valor para a área da saúde.
 
