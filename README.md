@@ -13,15 +13,14 @@
 ## 👨‍🎓 Integrantes: 
 - Alex da Silva Lima (RM559784)
 - Johnatan Sousa Macedo Loriano (RM559546)
-- Matheus Augusto Rodrigues Maia (RM560683)
 - Bruno Henrique Nielsen Conter (RM560518)
 - Fabio Santos Cardoso (RM560479)
 
 ## 👩‍🏫 Professores:
 ### Tutor(a) 
-- Nome do Tutor
+- Lucas Gomes Moreira
 ### Coordenador(a)
-- Nome do Coordenador
+- André Godoi
 
 ## 📜 Descrição
 
@@ -39,11 +38,18 @@ Nesta primeira fase, o grupo atuou como **Cientista de Dados Hospitalar**. O foc
 
 ### **1. Dados Numéricos (IoT)**
 
-* **Descrição e Origem**: O dataset numérico, com mais de 100 linhas, foi compilado para simular dados de pacientes com foco em saúde cardiovascular. Ele contém variáveis como idade, sexo, pressão arterial (sistólica e diastólica), colesterol, histórico familiar de doenças cardíacas e frequência cardíaca. As informações são fictícias, criadas para a finalidade deste projeto acadêmico.
+*   **Descrição e Origem**: O dataset numérico utilizado é o "Heart Disease UCI", um conjunto de dados clássico e amplamente utilizado, proveniente da Cleveland Clinic Foundation e disponibilizado via UCI Machine Learning Repository e Kaggle. Ele contém 303 instâncias e 14 atributos, incluindo idade, sexo, tipo de dor no peito, pressão arterial em repouso, colesterol sérico, e o atributo alvo que indica a presença ou ausência de doença cardíaca. Este dataset não simula dados de IoT, mas serve como uma base de dados estruturada fundamental para treinar modelos de classificação de risco cardiovascular.
 
-* **Link para o Dataset**: [https://drive.google.com/file/d/1A8RgDcJegtEAq41ApoB67SSJTOjWMBmU/view?usp=sharing](https://drive.google.com/file/d/1A8RgDcJegtEAq41ApoB67SSJTOjWMBmU/view?usp=sharing)
+*   **Fontes e Acesso aos Dados**:
+    *   **Fonte Original (Kaggle)**: [Heart Disease UCI](https://www.kaggle.com/datasets/data855/heart-disease?resource=download)
+    *   **Análise de Referência (Kaggle Notebook)**: [Heart Disease Predictions](https://www.kaggle.com/code/desalegngeb/heart-disease-predictions)
+    *   **Cópia Local**: Os dados brutos podem ser salvos no diretório `data/raw/` (ex: `data/raw/previsões de doenças cardíacas.csv`).
+    *   **Cópia em Nuvem (Google Drive)**: [Link para o Google Drive](https://drive.google.com/file/d/1A8RgDcJegtEAq41ApoB67SSJTOjWMBmU/view?usp=sharing)
 
-* **Relevância Clínica e para a IA**: A escolha dessas variáveis é estratégica para a IA, pois são indicadores-chave de risco cardiovascular. Modelos de Machine Learning podem ser treinados com esses dados para identificar padrões e prever a probabilidade de eventos cardíacos. A governança de dados é crucial aqui; a qualidade e a veracidade dos dados de entrada (mesmo que simulados) são fundamentais para garantir que os modelos de IA não gerem vieses ou diagnósticos imprecisos no futuro.
+*   **Relevância Clínica e para a IA**: A escolha dessas variáveis é estratégica, pois são indicadores-chave de risco cardiovascular, validados clinicamente. Modelos de Machine Learning podem ser treinados com estes dados do mundo real para:
+    *   **Classificar Pacientes**: Prever a probabilidade de um paciente ter uma doença cardíaca com base em seus dados clínicos.
+    *   **Identificar Fatores de Risco**: Analisar quais variáveis (features) são mais preditivas para o diagnóstico.
+    *   **Benchmark de Modelos**: Por ser um dataset conhecido, ele é excelente para testar e comparar a performance de diferentes algoritmos de classificação (ex: Regressão Logística, SVM, Random Forest), estabelecendo uma base sólida para futuras iterações do projeto com dados de IoT.
 
 ### **2. Dados Textuais (NLP)**
 
