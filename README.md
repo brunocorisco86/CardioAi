@@ -110,6 +110,7 @@ O projeto está organizado com uma estrutura de pastas modular para suportar as 
 │   ├── raw/         # Dados brutos e imutáveis (ex: CSVs originais).
 │   └── processed/   # Dados intermediários ou limpos após processamento.
 ├── document/        # Documentação oficial do projeto e relatórios.
+├── notebooks/       # Jupyter notebooks para análise exploratória e modelagem.
 ├── scripts/         # Scripts auxiliares (ex: automação, deploy, migração).
 ├── src/             # Código-fonte principal da aplicação e modelos de IA.
 ├── .gitattributes   # Define atributos por caminho do Git.
@@ -139,8 +140,31 @@ O projeto está organizado com uma estrutura de pastas modular para suportar as 
     ```
     Nesta fase, o foco é a organização dos dados e da documentação. O código de análise será desenvolvido nas próximas etapas e adicionado na pasta `src/`.
 
+3.  **Jupyter Notebooks**:
+
+    Na pasta `notebooks/`, você encontrará os seguintes notebooks:
+
+    *   `eda.ipynb`: Realiza uma análise exploratória dos dados (EDA) do dataset de doenças cardíacas. Este notebook carrega os dados, exibe informações básicas, estatísticas descritivas e visualizações para entender a distribuição e as relações entre as variáveis.
+    *   `model_building.ipynb`: Demonstra a construção de um modelo de classificação simples (Regressão Logística) para prever a presença de doenças cardíacas. O notebook inclui o pré-processamento dos dados, a divisão em conjuntos de treino and teste, o treinamento do modelo e a avaliação de sua performance.
+
+    Para executar os notebooks, você precisará ter o Jupyter Notebook ou o JupyterLab instalado:
+
+    ```bash
+    # Instale o JupyterLab
+    pip install jupyterlab
+
+    # Inicie o JupyterLab na pasta do projeto
+    jupyter-lab
+    ```
+
 ## 🗃 Histórico de lançamentos
 
+* 0.2.0 - 03/09/2025
+    * Adicionado diretório `notebooks` para análise de dados e modelagem.
+    * Criado notebook `eda.ipynb` para análise exploratória dos dados.
+    * Criado notebook `model_building.ipynb` para construção de um modelo de classificação.
+    * Adicionado `requirements.txt` com as dependências do projeto.
+    * Atualizado o `README.md` com as novas seções e informações.
 * 0.1.0 - 14/08/2025
     * Estrutura inicial do repositório
     * Coleta e organização dos datasets numéricos, textuais e visuais (Fase 1)
