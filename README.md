@@ -97,23 +97,25 @@ Nesta primeira fase, o grupo atuou como **Cientista de Dados Hospitalar**. O foc
 
 ---
 
-## 📁 Estrutura de pastas
+## 📁 Estrutura de Pastas
 
-Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
+O projeto está organizado com uma estrutura de pastas modular para suportar as diferentes fases de desenvolvimento, desde a análise de dados até a implementação dos modelos de IA.
 
-- <b>.github</b>: Nesta pasta ficarão os arquivos de configuração específicos do GitHub que ajudam a gerenciar e automatizar processos no repositório.
-
-- <b>assets</b>: aqui estão os arquivos relacionados a elementos não-estruturados deste repositório, como imagens.
-
-- <b>config</b>: Posicione aqui arquivos de configuração que são usados para definir parâmetros e ajustes do projeto.
-
-- <b>document</b>: aqui estão todos os documentos do projeto que as atividades poderão pedir. Na subpasta "other", adicione documentos complementares e menos importantes.
-
-- <b>scripts</b>: Posicione aqui scripts auxiliares para tarefas específicas do seu projeto. Exemplo: deploy, migrações de banco de dados, backups.
-
-- <b>src</b>: Todo o código fonte criado para o desenvolvimento do projeto ao longo das 7 fases.
-
-- <b>README.md</b>: arquivo que serve como guia e explicação geral sobre o projeto (o mesmo que você está lendo agora).
+```
+.
+├── .github/         # Configurações do GitHub (ex: templates de issue).
+├── assets/          # Arquivos de dados não-estruturados (textos, imagens, etc.).
+├── config/          # Arquivos de configuração do projeto.
+├── data/            # Datasets utilizados no projeto.
+│   ├── raw/         # Dados brutos e imutáveis (ex: CSVs originais).
+│   └── processed/   # Dados intermediários ou limpos após processamento.
+├── document/        # Documentação oficial do projeto e relatórios.
+├── scripts/         # Scripts auxiliares (ex: automação, deploy, migração).
+├── src/             # Código-fonte principal da aplicação e modelos de IA.
+├── .gitattributes   # Define atributos por caminho do Git.
+├── .gitignore       # Especifica arquivos a serem ignorados pelo Git.
+└── README.md        # Este arquivo.
+```
 
 ## 🔧 Como executar o código
 
