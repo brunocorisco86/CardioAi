@@ -83,6 +83,8 @@ Nesta primeira fase, o grupo atuou como **Cientista de Dados Hospitalar**. O foc
 *   **Descrição e Origem**: O conjunto de dados visual é composto por mais de 100 imagens de Eletrocardiogramas (ECG) em formato `.png`. As imagens foram obtidas do repositório público "ECG-Image-Kit", que fornece um kit de ferramentas para trabalhar com imagens de ECG.
 
 *   **Link para as Imagens**: [https://github.com/alphanumericslab/ecg-image-kit/tree/main/sample-data/ecg-images](https://github.com/alphanumericslab/ecg-image-kit/tree/main/sample-data/ecg-images)
+  
+*   **Imagens - Google Drive**: https://drive.google.com/drive/folders/1Q4JwGnt5m5cCo0OJoQPVVP7BS6pkjcJo?usp=drive_link
 
 *   **Fonte Complementar (Google Drive)**: [Link para o Google Drive](https://drive.google.com/drive/folders/1Q4JwGnt5m5cCo0OJoQPVVP7BS6pkjcJo?usp=drive_link)
 
