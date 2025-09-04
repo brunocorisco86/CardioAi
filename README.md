@@ -74,14 +74,20 @@ Nesta primeira fase, o grupo atuou como **Cientista de Dados Hospitalar**. O foc
 
 ### **3. Dados Visuais (Visão Computacional)**
 
-* **Descrição e Origem**: O conjunto visual inclui mais de 100 imagens que simulam exames cardiológicos, como ECGs e raio-X torácico. As imagens foram obtidas de fontes abertas e plataformas de dataset público para fins de estudo.
+*   **Descrição e Origem**: O conjunto de dados visual é composto por mais de 100 imagens de Eletrocardiogramas (ECG) em formato `.png`. As imagens foram obtidas do repositório público "ECG-Image-Kit", que fornece um kit de ferramentas para trabalhar com imagens de ECG.
 
-* **Link para as Imagens**: [Insira o link público do seu Google Drive/OneDrive aqui]
+*   **Link para as Imagens**: [https://github.com/alphanumericslab/ecg-image-kit/tree/main/sample-data/ecg-images](https://github.com/alphanumericslab/ecg-image-kit/tree/main/sample-data/ecg-images)
 
-* **Relevância Clínica e para a IA**: A Visão Computacional (VC) será fundamental para o projeto. Com essas imagens, algoritmos de VC podem ser treinados para:
-    * **Detecção de Padrões**: Reconhecer anomalias e arritmias em ECGs.
-    * **Identificação de Bordas**: Mapear a silhueta do coração em um raio-X para detectar cardiomegalia.
-    * **Reconhecimento de Anomalias**: Identificar padrões que indicam doenças em exames, auxiliando a equipe médica no diagnóstico.
+*   **Relevância e Exploração com Visão Computacional**: Imagens de ECG são fundamentais para o diagnóstico de uma vasta gama de condições cardíacas. A aplicação de algoritmos de Visão Computacional (VC) sobre esses dados permite automatizar e escalar a análise, trazendo grande valor para a área da saúde.
+
+    *   **Detecção de Padrões e Segmentação**: Modelos de VC podem ser treinados para identificar e segmentar as diferentes ondas (P, QRS, T), segmentos (ST) e intervalos (PR, QT) em uma imagem de ECG.
+        *   **Justificativa**: A análise precisa das características e durações desses padrões é a base do diagnóstico por ECG. A automação dessa tarefa permite extrair medições quantitativas de forma rápida e consistente, auxiliando na identificação de irregularidades.
+
+    *   **Reconhecimento de Anomalias e Classificação**: Uma vez que os padrões são identificados, a IA pode ser usada para detectar anomalias e classificar os ECGs. Por exemplo, um modelo pode aprender a diferenciar um ritmo sinusal normal de arritmias comuns, como fibrilação atrial, ou a identificar sinais de isquemia e infarto do miocárdio (ex: elevação ou depressão do segmento ST).
+        *   **Justificativa**: Um sistema de IA capaz de realizar essa classificação pode atuar como uma ferramenta de triagem, alertando médicos sobre exames críticos que necessitam de atenção imediata. Isso otimiza o fluxo de trabalho, reduz o tempo para o diagnóstico e pode ser crucial em emergências.
+
+    *   **Identificação de Bordas e Características Morfológicas**: Algoritmos de identificação de bordas podem ser aplicados para analisar a morfologia das ondas (sua forma, altura e contorno), que também contém informações diagnósticas importantes.
+        *   **Justificativa**: Mudanças sutis na forma das ondas, que podem ser difíceis de quantificar manualmente, podem ser detectadas por um modelo de IA, oferecendo um nível adicional de detalhe para o diagnóstico e auxiliando na detecção precoce de patologias.
 
 ---
 
