@@ -10,17 +10,17 @@
 
 ## CardioSync
 
-## 👨‍🎓 Integrantes: 
+## 👨‍🎓 Integrantes:
 - Alex da Silva Lima (RM559784)
 - Johnatan Sousa Macedo Loriano (RM559546)
 - Bruno Henrique Nielsen Conter (RM560518)
 - Fabio Santos Cardoso (RM560479)
 
 ## 👩‍🏫 Professores:
-### Tutor(a) 
+### Tutor(a)
 - Lucas Gomes Moreira
 ### Coordenador(a)
-- André Godoi
+- André Godoi
 
 ## 📜 Descrição
 
@@ -34,31 +34,38 @@ Este repositório foi criado com uma estrutura modular, pensando na evolução d
 
 Nesta primeira fase, o grupo atuou como **Cientista de Dados Hospitalar**. O foco principal foi a coleta, organização e preparação de três tipos de dados fundamentais que servirão de base para o desenvolvimento dos módulos de IA.
 
+*   **1. Dados Numéricos (IoT)**: O dataset numérico utilizado é o "Heart Disease UCI", um conjunto de dados clássico e amplamente utilizado, proveniente da Cleveland Clinic Foundation.
+    *   **Fontes e Acesso aos Dados**:
+        *   **Fonte Original (Kaggle)**: [Heart Disease UCI](https://www.kaggle.com/datasets/data855/heart-disease?resource=download)
+        *   **Cópia Local**: Os dados brutos podem ser salvos no diretório `data/raw/` (ex: `data/raw/previsões de doenças cardíacas.csv`).
+        *   **Cópia em Nuvem (Google Drive)**: [Link para o Google Drive](https://drive.google.com/file/d/1A8RgDcJegtEAq41ApoB67SSJTOjWMBmU/view?usp=sharing)
+
+*   **2. Dados Textuais (NLP)**: Foram selecionados quatro artigos científicos em formato `.txt`, abordando diferentes dimensões das doenças cardiovasculares (DCV) no Brasil.
+    *   **Caminho no Repositório**: Os arquivos de texto estão localizados na pasta `assets/`.
+
+*   **3. Dados Visuais (Visão Computacional)**: O conjunto de dados visual é composto por mais de 100 imagens de Eletrocardiogramas (ECG) em formato `.png`, obtidas do repositório público "ECG-Image-Kit".
+    *   **Link para as Imagens**: [https://github.com/alphanumericslab/ecg-image-kit/tree/main/sample-data/ecg-images](https://github.com/alphanumericslab/ecg-image-kit/tree/main/sample-data/ecg-images)
+    *   **Imagens - Google Drive**: https://drive.google.com/drive/folders/1Q4JwGnt5m5cCo0OJoQPVVP7BS6pkjcJo?usp=drive_link
+
 ---
 
-### **1. Dados Numéricos (IoT)**
+### **Fase 2: Início da IA avançada - Diagnóstico Automatizado**
 
-*   **Descrição e Origem**: O dataset numérico utilizado é o "Heart Disease UCI", um conjunto de dados clássico e amplamente utilizado, proveniente da Cleveland Clinic Foundation e disponibilizado via UCI Machine Learning Repository e Kaggle. Ele contém 303 instâncias e 14 atributos, incluindo idade, sexo, tipo de dor no peito, pressão arterial em repouso, colesterol sérico, e o atributo alvo que indica a presença ou ausência de doença cardíaca. Este dataset não simula dados de IoT, mas serve como uma base de dados estruturada fundamental para treinar modelos de classificação de risco cardiovascular.
+Nesta fase, o projeto CardioIA foca na simulação da automatização do diagnóstico com IA, utilizando Processamento de Linguagem Natural (NLP), classificação de texto e análise de vieses. O objetivo é desenvolver um módulo inteligente capaz de analisar dados clínicos e relatórios médicos, reconhecer sintomas e propor diagnósticos assistidos por IA.
 
-*   **Fontes e Acesso aos Dados**:
-    *   **Fonte Original (Kaggle)**: [Heart Disease UCI](https://www.kaggle.com/datasets/data855/heart-disease?resource=download)
-    *   **Análise de Referência (Kaggle Notebook)**: [Heart Disease Predictions](https://www.kaggle.com/code/desalegngeb/heart-disease-predictions)
-    *   **Cópia Local**: Os dados brutos podem ser salvos no diretório `data/raw/` (ex: `data/raw/previsões de doenças cardíacas.csv`).
-    *   **Cópia em Nuvem (Google Drive)**: [Link para o Google Drive](https://drive.google.com/file/d/1A8RgDcJegtEAq41ApoB67SSJTOjWMBmU/view?usp=sharing)
+**Atividades Principais:**
 
-*   **Relevância Clínica e para a IA**: A escolha dessas variáveis é estratégica, pois são indicadores-chave de risco cardiovascular, validados clinicamente. Modelos de Machine Learning podem ser treinados com estes dados do mundo real para:
-    *   **Classificar Pacientes**: Prever a probabilidade de um paciente ter uma doença cardíaca com base em seus dados clínicos.
-    *   **Identificar Fatores de Risco**: Analisar quais variáveis (features) são mais preditivas para o diagnóstico.
-    *   **Benchmark de Modelos**: Por ser um dataset conhecido, ele é excelente para testar e comparar a performance de diferentes algoritmos de classificação (ex: Regressão Logística, SVM, Random Forest), estabelecendo uma base sólida para futuras iterações do projeto com dados de IoT.
+*   **Parte 1 – Frases de sintomas + extração de informações:** Simular a automatização do diagnóstico com IA, utilizando NLP, classificação de texto e análise de vieses.
+    *   **Entregáveis:** Arquivo `.txt` com 10 frases de sintomas (`assets/frases_descricao_sintomas.txt`), planilha/arquivo `.csv` com mapa de conhecimento (`tabela_sintoma_diagnostico_risco.csv`), e código Python para identificar sintomas e sugerir diagnósticos.
+*   **Parte 2 – Classificador básico de texto:** Desenvolver um classificador básico de texto para analisar frases com sintomas e classificar o nível de risco ("baixo risco" ou "alto risco").
+    *   **Entregáveis:** Arquivo `.csv` com frases e rótulos de risco, notebook Python com TF-IDF, classificação e avaliação, repositório público no GitHub e vídeo de demonstração.
 
-### **2. Dados Textuais (NLP)**
+**Atividades "Ir Além" (Opcionais):**
 
-*   **Descrição e Origem**: Foram selecionados quatro artigos científicos em formato `.txt`, obtidos de fontes acadêmicas e de saúde pública. Os textos abordam diferentes dimensões das doenças cardiovasculares (DCV) no Brasil. Os trabalhos incluídos são:
-    *   **"Epidemiologia das Doenças Cardiovasculares no Brasil: A Verdade Escondida nos Números"**: Discute a epidemiologia das DCV no Brasil, abordando a importância e os desafios da coleta de dados de mortalidade para a criação de políticas de saúde.
-    *   **"Fatores associados às doenças cardiovasculares na população adulta brasileira"**: Investiga a prevalência e os fatores sociodemográficos, de saúde e de estilo de vida associados ao diagnóstico de DCV na população adulta do Brasil, com base na Pesquisa Nacional de Saúde de 2019.
-    *   **"Fatores psicossociais associados à doença cardíaca e manejo clínico psicológico"**: Explora a percepção de psicólogos e pacientes sobre os fatores psicossociais (como estresse e depressão) ligados às cardiopatias e as possibilidades de manejo psicológico.
-    *   **"Prevalência das Doenças Cardíacas Ilustrada em 60 Anos dos Arquivos Brasileiros de Cardiologia"**: Analisa a evolução das publicações científicas sobre doenças cardíacas ao longo de 60 anos para refletir as tendências e a prevalência dessas doenças no Brasil.
+*   **Ir Além 1 – Criando a interface do CardioIA:** Construir a interface do CardioIA, um pequeno portal responsivo em React + Vite, simulando a visualização de dados de pacientes, agendamentos e um painel com métricas simples.
+*   **Ir Além 2 – Diagnóstico visual em cardiologia com rede neural:** Aplicar uma Rede Neural Artificial (MLP) para classificar imagens médicas relacionadas a diagnósticos cardiológicos (ECG).
 
+<<<<<<< HEAD
 *   **Caminho no Repositório**: Os arquivos de texto estão localizados na pasta `assets/`.
 
 *   **Relevância e Exploração com NLP**: Os textos fornecem uma base rica para a aplicação de algoritmos de Processamento de Linguagem Natural (NLP), gerando insights valiosos para um projeto de IA em saúde. A relevância está na capacidade de transformar dados não estruturados (texto) em informações acionáveis para profissionais de saúde, pesquisadores e gestores.
@@ -97,6 +104,8 @@ Nesta primeira fase, o grupo atuou como **Cientista de Dados Hospitalar**. O foc
     *   **Identificação de Bordas e Características Morfológicas**: Algoritmos de identificação de bordas podem ser aplicados para analisar a morfologia das ondas (sua forma, altura e contorno), que também contém informações diagnósticas importantes.
         *   **Justificativa**: Mudanças sutis na forma das ondas, que podem ser difíceis de quantificar manualmente, podem ser detectadas por um modelo de IA, oferecendo um nível adicional de detalhe para o diagnóstico e auxiliando na detecção precoce de patologias.
 
+Para detalhes completos sobre os próximos passos e entregáveis desta fase, consulte o documento [next_steps.md](docs/next_steps.md).
+
 ---
 
 ## 📁 Estrutura de Pastas
@@ -112,6 +121,7 @@ O projeto está organizado com uma estrutura de pastas modular para suportar as 
 │   ├── raw/         # Dados brutos e imutáveis (ex: CSVs originais).
 │   └── processed/   # Dados intermediários ou limpos após processamento.
 ├── document/        # Documentação oficial do projeto e relatórios.
+├── docs/            # Documentação específica do projeto, incluindo next_steps.md.
 ├── notebooks/       # Jupyter notebooks para análise exploratória e modelagem.
 ├── scripts/         # Scripts auxiliares (ex: automação, deploy, migração).
 ├── src/             # Código-fonte principal da aplicação e modelos de IA.
@@ -122,12 +132,42 @@ O projeto está organizado com uma estrutura de pastas modular para suportar as 
 
 ## 🔧 Como executar o código
 
-**Fase 1: Preparação de Dados**
+### **Fase 2: Análise de Sintomas com NLP**
+
+Para executar a análise de sintomas baseada em Processamento de Linguagem Natural (NLP), foram criados um script de análise em lote e um notebook interativo.
+
+**Pré-requisitos:**
+
+Certifique-se de que as bibliotecas `spaCy` e seu modelo de português estão instalados:
+```bash
+pip install spacy pandas
+python -m spacy download pt_core_news_sm
+```
+
+**1. Análise em Lote via Script**
+
+O script `src/symptom_analyzer.py` analisa todas as frases contidas em `assets/frases_descricao_sintomas.txt` e, para cada uma, identifica o sintoma, o risco e o diagnóstico correspondente da base de conhecimento.
+
+Para executá-lo, utilize o seguinte comando na raiz do projeto:
+```bash
+python src/symptom_analyzer.py
+```
+
+**2. Análise Interativa via Jupyter Notebook**
+
+Para uma análise interativa, onde você pode inserir uma frase e obter o resultado, utilize o notebook `notebooks/symptom_analysis_interactive.ipynb`.
+
+1.  Inicie o JupyterLab (instruções na seção anterior).
+2.  Abra o arquivo `notebooks/symptom_analysis_interactive.ipynb`.
+3.  Execute as células para carregar as dependências e a base de conhecimento.
+4.  Na última célula, você pode alterar a frase de exemplo para testar qualquer descrição de sintoma.
+
+### **Fase 1: Preparação de Dados**
 
 1.  **Pré-requisitos**:
-    * Python 3.x
-    * Bibliotecas Python para análise de dados (ex: Pandas, Matplotlib, scikit-learn).
-    * Git para clonar o repositório.
+    *   Python 3.x
+    *   Bibliotecas Python para análise de dados (ex: Pandas, Matplotlib, scikit-learn).
+    *   Git para clonar o repositório.
 
 2.  **Instalação e Execução**:
     ```bash
@@ -161,16 +201,26 @@ O projeto está organizado com uma estrutura de pastas modular para suportar as 
 
 ## 🗃 Histórico de lançamentos
 
-* 0.2.0 - 03/09/2025
-    * Adicionado diretório `notebooks` para análise de dados e modelagem.
-    * Criado notebook `eda.ipynb` para análise exploratória dos dados.
-    * Criado notebook `model_building.ipynb` para construção de um modelo de classificação.
-    * Adicionado `requirements.txt` com as dependências do projeto.
-    * Atualizado o `README.md` com as novas seções e informações.
-* 0.1.0 - 14/08/2025
-    * Estrutura inicial do repositório
-    * Coleta e organização dos datasets numéricos, textuais e visuais (Fase 1)
-    * Criação do README.md detalhado
+*   0.2.2 - 06/10/2025
+    *   Concluído "Parte 1 - Entregável 3": Desenvolvido o script `src/symptom_analyzer.py` que utiliza NLP (spaCy) para analisar frases de sintomas, identificar o sintoma correspondente, o grau de risco e o diagnóstico associado.
+    *   Criado o notebook `notebooks/symptom_analysis_interactive.ipynb` para permitir a análise interativa de frases de sintomas.
+    *   Atualizado o `README.md` com a seção "Análise de Sintomas com NLP" e instruções de uso.
+*   0.2.1 - 06/10/2025
+    *   Início da Fase 2: Início da IA avançada - Diagnóstico Automatizado.
+    *   Concluído "Parte 1 - Entregável 1": Criação do arquivo `assets/frases_descricao_sintomas.txt`.
+    *   Concluído "Parte 1 - Entregável 2": Criação do arquivo `tabela_sintoma_diagnostico_risco.csv`.
+    *   Atualizado `docs/next_steps.md` para refletir o progresso da Fase 2.
+    *   Atualizado `README.md` com informações da Fase 2 e link para `next_steps.md`.
+*   0.2.0 - 03/09/2025
+    *   Adicionado diretório `notebooks` para análise de dados e modelagem.
+    *   Criado notebook `eda.ipynb` para análise exploratória dos dados.
+    *   Criado notebook `model_building.ipynb` para construção de um modelo de classificação.
+    *   Adicionado `requirements.txt` com as dependências do projeto.
+    *   Atualizado o `README.md` com as novas seções e informações.
+*   0.1.0 - 14/08/2025
+    *   Estrutura inicial do repositório
+    *   Coleta e organização dos datasets numéricos, textuais e visuais (Fase 1)
+    *   Criação do README.md detalhado
 
 ## 📋 Licença
 

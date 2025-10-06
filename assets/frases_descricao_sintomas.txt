@@ -1,0 +1,20 @@
+1. Sinto **falta de ar ao deitar** ou preciso usar mais de um travesseiro para dormir.
+2. Percebi **inchaço nas pernas** ou tornozelos nos últimos dias.
+3. Notei **palpitações** ou batimentos cardíacos irregulares recentemente.
+4. Sinto **dor ou pressão no peito** ao fazer esforço físico.
+5. Já **acordei à noite com falta de ar** súbita.
+6. Observei **coloração azulada** nos lábios ou extremidades (**cianose**).
+7. Tenho sentido **tontura ou desmaios**, especialmente ao levantar-me.
+8. Percebo **pulsação forte** ou visível no pescoço.
+9. Sinto **dor ou desconforto ao inspirar** profundamente.
+10. Notei **batimentos cardíacos muito acelerados ou lentos**.
+11. Já percebi **sopros ou ruídos diferentes** ao ouvir o próprio coração com estetoscópio.
+12. Sinto **dor ou desconforto ao pressionar o tórax**.
+13. Observei **abaulamentos ou retrações no tórax** ao respirar.
+14. Sinto **dor nas pernas ao caminhar**, que melhora ao repousar.
+15. Notei **aumento do volume abdominal** ou sensação de barriga inchada.
+16. Percebo **pulsação no abdome**.
+17. Já percebi **tremores ou vibrações no peito** ao colocar a mão sobre o coração.
+18. Sinto **dor de cabeça** associada a pressão alta.
+19. Notei **suor excessivo** sem causa aparente.
+20. Já percebi **alteração na cor da urina** ou diminuição do volume urinário.
