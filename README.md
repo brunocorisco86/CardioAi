@@ -73,7 +73,7 @@ O núcleo da solução está no notebook `notebooks/symptom_analysis_interactive
 *   **Frases de Pacientes (`assets/frases_descricao_sintomas.txt`):** Um conjunto de frases que simulam relatos reais de pacientes, utilizado para testes em lote.
 *   **Analisador em Lote (`src/symptom_analyzer.py`):** Um script que processa o arquivo de frases e aplica a lógica de análise de sintomas.
 *   **Notebook Interativo (`notebooks/symptom_analysis_interactive.ipynb`):** A principal aplicação desta fase, onde é possível inserir uma frase e visualizar em tempo real a análise semântica e a previsão de risco do modelo de Machine Learning.
-*   **Vídeo de Demonstração:** [Assista no YouTube]((https://youtu.be/7ksr-DaBMeE))
+*   **Vídeo de Demonstração:** [Assista no YouTube](https://youtu.be/7ksr-DaBMeE)
 
 
 ### **3. Dados Visuais (Visão Computacional)**
