@@ -51,39 +51,30 @@ Nesta primeira fase, o grupo atuou como **Cientista de Dados Hospitalar**. O foc
 
 ### **Fase 2: Início da IA avançada - Diagnóstico Automatizado**
 
-Nesta fase, o projeto CardioIA foca na simulação da automatização do diagnóstico com IA, utilizando Processamento de Linguagem Natural (NLP), classificação de texto e análise de vieses. O objetivo é desenvolver um módulo inteligente capaz de analisar dados clínicos e relatórios médicos, reconhecer sintomas e propor diagnósticos assistidos por IA.
+Nesta fase, o projeto avançou para a criação de um sistema de **triagem e diagnóstico assistido por IA**, simulando como a tecnologia pode auxiliar profissionais de saúde na tomada de decisão. Foi desenvolvida uma solução de **IA Híbrida**, que combina o poder da análise semântica (IA Simbólica) com a capacidade de previsão do Machine Learning (IA Estatística).
 
-**Atividades Principais:**
+O núcleo da solução está no notebook `notebooks/symptom_analysis_interactive.ipynb`, que orquestra duas abordagens principais:
 
-*   **Parte 1 – Frases de sintomas + extração de informações:** Simular a automatização do diagnóstico com IA, utilizando NLP, classificação de texto e análise de vieses.
-    *   **Entregáveis:** Arquivo `.txt` com 10 frases de sintomas (`assets/frases_descricao_sintomas.txt`), planilha/arquivo `.csv` com mapa de conhecimento (`tabela_sintoma_diagnostico_risco.csv`), e código Python para identificar sintomas e sugerir diagnósticos.
-*   **Parte 2 – Classificador básico de texto:** Desenvolver um classificador básico de texto para analisar frases com sintomas e classificar o nível de risco ("baixo risco" ou "alto risco").
-    *   **Entregáveis:** Arquivo `.csv` com frases e rótulos de risco, notebook Python com TF-IDF, classificação e avaliação, repositório público no GitHub e vídeo de demonstração.
+*   **1. Análise Semântica para Diagnóstico Diferencial (Junta Médica Virtual):**
+    *   **Objetivo:** Interpretar a descrição de um sintoma em linguagem natural e sugerir os diagnósticos mais prováveis.
+    *   **Como funciona:** Utilizando a biblioteca `spaCy` e seu modelo de linguagem para português (`pt_core_news_md`), o sistema calcula a **similaridade semântica** entre a frase do paciente e as mais de 90 descrições de sintomas catalogadas na base de conhecimento (`assets/tabela_sintoma_diagnostico_risco.csv`).
+    *   **Resultado:** O sistema apresenta as **três hipóteses diagnósticas** com maior similaridade, atuando como uma "junta médica virtual" que oferece diagnósticos diferenciais para o profissional de saúde.
 
-**Atividades "Ir Além" (Opcionais):**
+*   **2. Classificação de Risco com Machine Learning:**
+    *   **Objetivo:** Classificar automaticamente o nível de risco de um paciente (Alto, Médio ou Baixo) com base na descrição dos sintomas.
+    *   **Como funciona:**
+        1.  As frases da base de conhecimento são vetorizadas usando a técnica **TF-IDF**, que transforma o texto em uma representação numérica, dando mais importância às palavras que são relevantes para cada sintoma.
+        2.  Um modelo de classificação (`DecisionTreeClassifier`) é treinado com esses vetores para aprender a associar os padrões de texto aos seus respectivos graus de risco.
+    *   **Resultado:** O modelo é capaz de prever o risco de uma nova frase, fornecendo uma triagem rápida e automatizada, essencial para priorizar casos urgentes.
 
-*   **Ir Além 1 – Criando a interface do CardioIA:** Construir a interface do CardioIA, um pequeno portal responsivo em React + Vite, simulando a visualização de dados de pacientes, agendamentos e um painel com métricas simples.
-*   **Ir Além 2 – Diagnóstico visual em cardiologia com rede neural:** Aplicar uma Rede Neural Artificial (MLP) para classificar imagens médicas relacionadas a diagnósticos cardiológicos (ECG).
+**Entregáveis e Artefatos Gerados:**
 
-<<<<<<< HEAD
-*   **Caminho no Repositório**: Os arquivos de texto estão localizados na pasta `assets/`.
+*   **Base de Conhecimento (`assets/tabela_sintoma_diagnostico_risco.csv`):** Um arquivo CSV robusto com 94 sintomas, mapeando descrições em primeira pessoa para o sintoma técnico, grau de risco e diagnóstico principal.
+*   **Frases de Pacientes (`assets/frases_descricao_sintomas.txt`):** Um conjunto de frases que simulam relatos reais de pacientes, utilizado para testes em lote.
+*   **Analisador em Lote (`src/symptom_analyzer.py`):** Um script que processa o arquivo de frases e aplica a lógica de análise de sintomas.
+*   **Notebook Interativo (`notebooks/symptom_analysis_interactive.ipynb`):** A principal aplicação desta fase, onde é possível inserir uma frase e visualizar em tempo real a análise semântica e a previsão de risco do modelo de Machine Learning.
+*   **Vídeo de Demonstração:** [Assista no YouTube](https://youtu.be/lp4AAr-IsPU)
 
-*   **Relevância e Exploração com NLP**: Os textos fornecem uma base rica para a aplicação de algoritmos de Processamento de Linguagem Natural (NLP), gerando insights valiosos para um projeto de IA em saúde. A relevância está na capacidade de transformar dados não estruturados (texto) em informações acionáveis para profissionais de saúde, pesquisadores e gestores.
-
-    *   **Extração de Informações (Information Extraction) e Entidades (NER)**: Os artigos contêm uma vasta quantidade de dados clínicos e epidemiológicos. Um modelo de IA pode ser treinado para identificar e extrair automaticamente:
-        *   **Condições e Sintomas**: "insuficiência cardíaca", "infarto agudo do miocárdio", "hipertensão", "diabetes".
-        *   **Fatores de Risco**: "tabagismo", "sedentarismo", "estresse", "obesidade abdominal".
-        *   **Dados Estatísticos**: Prevalência ("5,3%"), mortalidade ("18,6 milhões"), fatores de risco associados (Razão de Prevalência - RP).
-        *   **Justificativa**: Essa extração automatizada é crucial para popular bancos de dados, construir painéis epidemiológicos em tempo real e auxiliar na identificação de perfis de risco em prontuários eletrônicos.
-
-    *   **Modelagem de Tópicos (Topic Modeling)**: Com a grande quantidade de literatura médica disponível, algoritmos como o Latent Dirichlet Allocation (LDA) podem analisar os textos e agrupá-los em temas centrais, como "Políticas de Saúde Pública", "Fatores Psicossociais", "Tratamento e Manejo Clínico" e "Fatores de Risco Sociodemográficos".
-        *   **Justificativa**: Isso permite que pesquisadores e médicos naveguem de forma eficiente pelo conhecimento existente, identifiquem tendências de pesquisa e encontrem rapidamente artigos relevantes para suas áreas de interesse.
-
-    *   **Análise de Sentimentos**: O texto sobre fatores psicossociais descreve emoções e percepções dos pacientes ("medo", "ansiedade", "frustração", "desamparo"). Um modelo de análise de sentimentos poderia quantificar essas percepções em larga escala, analisando, por exemplo, relatos de pacientes em fóruns online ou anotações em prontuários.
-        *   **Justificativa**: Compreender o impacto emocional da doença é fundamental para o manejo clínico integral do paciente. A IA pode ajudar a identificar pacientes que necessitam de suporte psicológico, melhorando a adesão ao tratamento e a qualidade de vida.
-
-    *   **Sumarização Automática**: Os artigos são densos e extensos. Algoritmos de sumarização podem criar resumos concisos, destacando os principais objetivos, métodos e conclusões de cada estudo.
-        *   **Justificativa**: Para médicos com tempo limitado, a sumarização automática acelera o acesso a evidências científicas, apoiando a tomada de decisão clínica baseada em informações atualizadas.
 
 ### **3. Dados Visuais (Visão Computacional)**
 
