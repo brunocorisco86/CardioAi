@@ -2,3 +2,8 @@ pandas
 matplotlib
 seaborn
 scikit-learn
+spacy
+
+# O modelo de linguagem em português para o spaCy precisa ser baixado separadamente.
+# Execute o seguinte comando após instalar as dependências acima:
+# python -m spacy download pt_core_news_sm

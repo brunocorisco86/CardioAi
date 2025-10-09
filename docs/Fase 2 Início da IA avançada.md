@@ -74,88 +74,9 @@ Aqui, você irá desenvolver um classificador básico de texto que analisa frase
 #### Entregáveis:
 
     Arquivo .csv com frases e rótulos.
+    
     Código .ipynb com TF-IDF, classificação e avaliação do modelo.
+    
     Repositório público no GitHub contendo todos os arquivos do projeto da Fase 2.
+    
     Um vídeo de até 4 minutos demonstrando o funcionamento completo da solução (pode ser com gravação de tela e explicação por voz ou legenda). O vídeo deve ser postado no YouTube como "não listado" e o link deve ser incluído no README do repositório no GitHub.
-Ir Além 1 – Criando a interface do CardioIA:
-
-Nesta atividade, você será responsável por construir apenas a interface do CardioIA. A proposta é criar um pequeno portal responsivo em React + Vite, que simule a visualização de dados de pacientes, agendamentos e um painel com métricas simples. Os dados utilizados devem ser simulados (via arquivos JSON locais ou API pública de exemplo), e nenhuma integração real com back-end será necessária. O foco é aplicar os conceitos aprendidos em Front-End, com destaque para Hooks avançados e Context API.
-
-Você e seu grupo deverão criar uma aplicação em React com Vite que contenha:
-
-    Autenticação simulada via Context API (com JWT fake no localStorage);
-    Listagem de pacientes utilizando API fake (como JSONPlaceholder) ou base simulada;
-    Formulário de agendamento de consultas com uso de useState e useReducer;
-    Dashboard simples com contagem de pacientes e consultas agendadas;
-    Proteção de rotas com AuthContext (só mostrar dados se o usuário estiver logado);
-    Estilização com CSS Modules ou Styled Components.
-
-## Objetivo:
-
-Construir uma aplicação front-end interativa que simule, de forma visual, a rotina de um portal de diagnóstico em cardiologia, utilizando React e seguindo boas práticas de componentização, navegação, autenticação simulada e manipulação de estado.
-
- 
-
-### Entregáveis:
-
-    Repositório público no GitHub com o nome: nome-do-grupo-cardioia-portal.
-    Código-fonte completo com as pastas:
-        /contexts, /components, /services, /pages.
-    README.md com instruções de instalação e execução.
-    Lista com nome completo e RM dos integrantes.
-    Um vídeo de até 4 minutos demonstrando o funcionamento completo da solução (pode ser com gravação de tela e explicação por voz ou legenda). O vídeo deve ser postado no YouTube como "não listado" e o link deve ser incluído no README do repositório no GitHub.
-
- 
-
-## Critérios de Avaliação:
-
-    Autenticação funcional e proteção de rotas.
-    Consumo de API e controle de estado.
-    Uso correto de Hooks (useState, useEffect, useContext).
-    Componentização e organização do projeto.
-    Estilização responsiva e usabilidade.
-
- 
-
-## Ir Além 2 – Diagnóstico visual em cardiologia com rede neural:
-
-Nesta atividade, você irá aplicar uma Rede Neural Artificial (MLP) para classificar imagens médicas relacionadas a diagnósticos cardiológicos. A proposta é utilizar uma base de dados pública com imagens de eletrocardiogramas (ECG) e treinar um modelo para identificar se o sinal indica um ritmo cardíaco normal ou alguma anomalia.
-
-Essa atividade amplia os conceitos do CardioIA para o campo do diagnóstico visual, reforçando a importância da IA na triagem automatizada de pacientes e no apoio à decisão médica.
-
- 
-
-### Objetivo:
-
-    Utilizar um dataset público de imagens de ECG com classificação binária (normal vs. anormal).
-    Pré-processar as imagens e convertê-las para um formato compatível com redes neurais simples (por exemplo: redimensionar e converter para tons de cinza).
-    Criar uma rede neural do tipo MLP (Perceptron Multicamadas) usando Keras.
-    Treinar e testar o modelo com base nos dados.
-    Avaliar a acurácia do classificador.
-
-### Recomendação de Dataset:
-
-<https://www.kaggle.com/datasets/shayanfazeli/heartbeat>.
-
- 
-
-### Entregáveis:
-
-    Notebook (.ipynb) com todo o código comentado e funcional.
-    Repositório público no GitHub contendo o notebook, exemplos de imagens e um README explicativo.
-    Um vídeo de até 4 minutos demonstrando o funcionamento do projeto, explicando o código, os dados e os resultados. O vídeo deve ser postado no YouTube como "não listado" e o link incluído no README do Git.
-
- 
-
-## Critérios de Avaliação:
-
-    Pré-processamento correto das imagens.
-    Implementação funcional da rede MLP com Keras.
-    Treinamento e avaliação com resultados apresentados.
-    Organização e clareza do código no notebook.
-
- 
-
-## Mensagem final:
-
-Treinar e interpretar um modelo de IA para prever riscos é uma tarefa que, embora simples na superfície, exige olhar analítico e responsabilidade. Ao dominar essa etapa, você desenvolve habilidades cada vez mais valorizadas no mercado — habilidades que poucos dominam com uma visão crítica e aplicada. Siga em frente nesta jornada com autonomia e criatividade. É assim que grandes cientistas surgem.
