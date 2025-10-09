@@ -111,8 +111,7 @@ O projeto está organizado com uma estrutura de pastas modular para suportar as 
 ├── data/            # Datasets utilizados no projeto.
 │   ├── raw/         # Dados brutos e imutáveis (ex: CSVs originais).
 │   └── processed/   # Dados intermediários ou limpos após processamento.
-├── document/        # Documentação oficial do projeto e relatórios.
-├── docs/            # Documentação específica do projeto, incluindo next_steps.md.
+├── docs/            # Documentação do projeto (relatórios, diagramas, etc.).
 ├── notebooks/       # Jupyter notebooks para análise exploratória e modelagem.
 ├── scripts/         # Scripts auxiliares (ex: automação, deploy, migração).
 ├── src/             # Código-fonte principal da aplicação e modelos de IA.
@@ -192,6 +191,10 @@ Para uma análise interativa, onde você pode inserir uma frase e obter o result
 
 ## 🗃 Histórico de lançamentos
 
+*   0.2.3 - 08/10/2025
+    *   Refatorada a documentação da Fase 2 no `README.md` para detalhar a abordagem de IA Híbrida e a solução desenvolvida.
+    *   Adicionado o link para o vídeo de demonstração da Fase 2.
+    *   Finalizados e commitados os artefatos da Fase 2, incluindo o notebook interativo e a reorganização da pasta de documentação.
 *   0.2.2 - 06/10/2025
     *   Concluído "Parte 1 - Entregável 3": Desenvolvido o script `src/symptom_analyzer.py` que utiliza NLP (spaCy) para analisar frases de sintomas, identificar o sintoma correspondente, o grau de risco e o diagnóstico associado.
     *   Criado o notebook `notebooks/symptom_analysis_interactive.ipynb` para permitir a análise interativa de frases de sintomas.
