@@ -75,8 +75,28 @@ O núcleo da solução está no notebook `notebooks/symptom_analysis_interactive
 *   **Notebook Interativo (`notebooks/symptom_analysis_interactive.ipynb`):** A principal aplicação desta fase, onde é possível inserir uma frase e visualizar em tempo real a análise semântica e a previsão de risco do modelo de Machine Learning.
 *   **Vídeo de Demonstração:** [Assista no YouTube](https://youtu.be/0_CQm8VvZyA)
 
+---
 
-### **3. Dados Visuais (Visão Computacional)**
+### **Fase 3: CardioIA Conectada: IoT e Visualização de Dados**
+
+Nesta fase, o projeto expandiu para o universo da Internet das Coisas (IoT), com o objetivo de criar um protótipo funcional de monitoramento contínuo de sinais vitais. Desviando da abordagem simulada, a equipe optou por uma **implementação com hardware real** para uma experiência mais prática e robusta.
+
+A solução desenvolvida captura dados de sensores, os transmite para uma plataforma de processamento e os exibe em um dashboard interativo, simulando um sistema de monitoramento de saúde em tempo real.
+
+A arquitetura foi dividida em três camadas:
+*   **1. Edge (Captura de Dados):** Um microcontrolador **ESP32 C3 SuperMini** com um sensor **DHT22** coleta dados de temperatura e umidade. O código foi desenvolvido em C++ e pode ser encontrado em `docs/EntregaFase3_Cap1/sketch_dht22_Cardio.ino`.
+*   **2. Comunicação (MQTT):** Os dados são transmitidos via Wi-Fi para um broker **MQTT** (Mosquitto) rodando em um **Raspberry Pi 3B**, que atua como servidor na rede local.
+*   **3. Fog/Cloud (Processamento e Visualização):** O **Node-RED**, também no Raspberry Pi, assina os tópicos MQTT, recebe os dados, e os exibe em um dashboard com gráficos, medidores e alertas visuais. O fluxo também inclui uma integração para enviar notificações via Telegram.
+
+**Entregáveis e Artefatos Gerados:**
+
+*   **Código do Microcontrolador (`docs/EntregaFase3_Cap1/sketch_dht22_Cardio.ino`):** Sketch C++ para o ESP32 que realiza a leitura do sensor e a comunicação MQTT.
+*   **Fluxo do Node-RED (`docs/EntregaFase3_Cap1/flows_node_red.json`):** Arquivo de exportação do fluxo completo, incluindo a lógica do dashboard e os alertas.
+*   **Relatório Detalhado (`relatorio_fase3_cardioAi.md`):** Documento markdown com a descrição completa da arquitetura, implementação e resultados da fase.
+*   **Evidências Visuais (`docs/EntregaFase3_Cap1/`):** A pasta contém fotos do hardware utilizado (`fotoProjetoHomelab.jpg`, `fotoRaspberryPi_3B.jpg`) e prints do dashboard e do fluxo no Node-RED (`PrintDashBoardNodeRed.png`, `PrintFlowNodeRed.png`).
+
+---
+### **Dados Visuais (Visão Computacional)**
 
 *   **Descrição e Origem**: O conjunto de dados visual é composto por mais de 100 imagens de Eletrocardiogramas (ECG) em formato `.png`. As imagens foram obtidas do repositório público "ECG-Image-Kit", que fornece um kit de ferramentas para trabalhar com imagens de ECG.
 
@@ -121,6 +141,24 @@ O projeto está organizado com uma estrutura de pastas modular para suportar as 
 ```
 
 ## 🔧 Como executar o código
+
+### **Fase 3: Monitoramento com IoT**
+
+A execução desta fase requer a montagem do hardware e a configuração dos serviços.
+
+1.  **Hardware:**
+    *   Um microcontrolador ESP32 (no projeto, um C3 SuperMini).
+    *   Um sensor de temperatura e umidade DHT22.
+    *   Um Raspberry Pi (no projeto, um 3B) ou outro computador para atuar como servidor.
+2.  **Configuração do ESP32:**
+    *   Abra o arquivo `docs/EntregaFase3_Cap1/sketch_dht22_Cardio.ino` na IDE do Arduino.
+    *   Atualize as credenciais de Wi-Fi (`WIFI_SSID`, `WIFI_PASS`) e do broker MQTT (`MQTT_SERVER`, `MQTT_USER`, `MQTT_PASS`).
+    *   Flashe o código no ESP32.
+3.  **Configuração do Servidor (Raspberry Pi):**
+    *   Instale um broker MQTT, como o Mosquitto.
+    *   Instale o Node-RED.
+    *   Inicie o Node-RED e importe o fluxo a partir do arquivo `docs/EntregaFase3_Cap1/flows_node_red.json`.
+    *   Acesse o dashboard do Node-RED no seu navegador (geralmente em `http://<IP_DO_RASPBERRY_PI>:1880/ui`).
 
 ### **Fase 2: Análise de Sintomas com NLP**
 
@@ -191,6 +229,12 @@ Para uma análise interativa, onde você pode inserir uma frase e obter o result
 
 ## 🗃 Histórico de lançamentos
 
+*   0.3.0 - 24/10/2025
+    *   Concluída a Fase 3: CardioIA Conectada.
+    *   Implementado protótipo de monitoramento IoT com hardware real (ESP32, DHT22, Raspberry Pi).
+    *   Desenvolvido dashboard em Node-RED para visualização de dados em tempo real e sistema de alertas via Telegram.
+    *   Adicionados todos os artefatos da fase, incluindo código do ESP32, fluxo do Node-RED e relatório detalhado.
+    *   Atualizado o `README.md` com a documentação e instruções da Fase 3.
 *   0.2.3 - 08/10/2025
     *   Refatorada a documentação da Fase 2 no `README.md` para detalhar a abordagem de IA Híbrida e a solução desenvolvida.
     *   Adicionado o link para o vídeo de demonstração da Fase 2.

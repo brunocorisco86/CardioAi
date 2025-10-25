@@ -1,0 +1,509 @@
+[
+    {
+        "id": "753f467e30a954c0",
+        "type": "tab",
+        "label": "Galinheiro",
+        "disabled": false,
+        "info": "Sensor destinado a automação da ventilação dos frangos\n\ntemperatura ideal = 23 graus",
+        "env": []
+    },
+    {
+        "id": "5891dc59be4eed93",
+        "type": "mqtt in",
+        "z": "753f467e30a954c0",
+        "name": "",
+        "topic": "quarto/C3_Ambiencia_DHT_01/temperatura",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "22a77394bc59d947",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 160,
+        "wires": [
+            [
+                "0dc903197208298c",
+                "417b5aace4ad6ac0",
+                "485acb2bd3b96721"
+            ]
+        ]
+    },
+    {
+        "id": "57666cf70e36daa8",
+        "type": "mqtt in",
+        "z": "753f467e30a954c0",
+        "name": "",
+        "topic": "quarto/C3_Ambiencia_DHT_01/umidade",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "22a77394bc59d947",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 400,
+        "wires": [
+            [
+                "4a70ce6fb7185bcc",
+                "bc89eb968c4bd8ab",
+                "e3583ee556038122"
+            ]
+        ]
+    },
+    {
+        "id": "0dc903197208298c",
+        "type": "function",
+        "z": "753f467e30a954c0",
+        "name": "extrair_temperatura",
+        "func": "msg.payload = Number(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 60,
+        "wires": [
+            [
+                "30ac3f726874d222",
+                "285b972714dfc016"
+            ]
+        ]
+    },
+    {
+        "id": "4a70ce6fb7185bcc",
+        "type": "function",
+        "z": "753f467e30a954c0",
+        "name": "extrair_umidade",
+        "func": "msg.payload = Number(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 340,
+        "wires": [
+            [
+                "8b2c8424e9027bcc",
+                "723f6da236e83e86"
+            ]
+        ]
+    },
+    {
+        "id": "30ac3f726874d222",
+        "type": "ui_gauge",
+        "z": "753f467e30a954c0",
+        "name": "Gauge de Temperatura - Quarto",
+        "group": "e1339d7730eda3e7",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "Celsius",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "40",
+        "colors": [
+            "#1a5fb4",
+            "#ffa348",
+            "#ca3838"
+        ],
+        "seg1": "10",
+        "seg2": "30",
+        "diff": false,
+        "className": "",
+        "x": 910,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "68d8af9c59cbd767",
+        "type": "ui_led",
+        "z": "753f467e30a954c0",
+        "order": 1,
+        "group": "e1339d7730eda3e7",
+        "width": 0,
+        "height": 0,
+        "label": "Alerta: Temperatura Acima de 30 Graus",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 830,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "417b5aace4ad6ac0",
+        "type": "function",
+        "z": "753f467e30a954c0",
+        "name": "se temperatura acima 30",
+        "func": "let temperatura = msg.payload;\nmsg.payload = temperatura > 30;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 100,
+        "wires": [
+            [
+                "68d8af9c59cbd767"
+            ]
+        ]
+    },
+    {
+        "id": "485acb2bd3b96721",
+        "type": "function",
+        "z": "753f467e30a954c0",
+        "name": "alerta temperatura no telegram",
+        "func": "let temperatura = msg.payload;\nlet estadoAnterior = context.get(\"estadoAlerta\") || \"baixo\";\n\n// Transição de abaixo para acima de 30\nif (temperatura > 30 && estadoAnterior === \"baixo\") {\n    context.set(\"estadoAlerta\", \"alto\");\n    msg.payload = {\n        chatId: -1001971261643, // Substitua pelo seu chatId se mudar\n        type: \"message\",\n        content: `⚠️ Alerta: Temperatura alta detectada: ${temperatura.toFixed(2)} celsius`\n    };\n    return msg;\n}\n\n// Transição de acima para abaixo de 30\nif (temperatura <= 30 && estadoAnterior === \"alto\") {\n    context.set(\"estadoAlerta\", \"baixo\");\n}\n\n// Em qualquer outro caso, não envia nada\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 140,
+        "wires": [
+            [
+                "0ea77d06cf9691c8"
+            ]
+        ]
+    },
+    {
+        "id": "bc89eb968c4bd8ab",
+        "type": "function",
+        "z": "753f467e30a954c0",
+        "name": "se abaixo de 40",
+        "func": "let umidade = msg.payload;\nmsg.payload = umidade <= 40;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 380,
+        "wires": [
+            [
+                "fe1d336bbd48d6da"
+            ]
+        ]
+    },
+    {
+        "id": "fe1d336bbd48d6da",
+        "type": "ui_led",
+        "z": "753f467e30a954c0",
+        "order": 1,
+        "group": "e1339d7730eda3e7",
+        "width": 0,
+        "height": 0,
+        "label": "Alerta: Umidade Abaixo de 40%",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 830,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "8b2c8424e9027bcc",
+        "type": "ui_gauge",
+        "z": "753f467e30a954c0",
+        "name": "Gauge de Umidade - Quarto",
+        "group": "e1339d7730eda3e7",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Umidade",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "30",
+        "max": "100",
+        "colors": [
+            "#e01b24",
+            "#57e389",
+            "#1c71d8"
+        ],
+        "seg1": "50",
+        "seg2": "80",
+        "diff": false,
+        "className": "",
+        "x": 900,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "e3583ee556038122",
+        "type": "function",
+        "z": "753f467e30a954c0",
+        "name": "alerta umidade no telegram",
+        "func": "let umidade = msg.payload;\nlet estadoAnterior = context.get(\"estadoAlerta\") || \"alto\";\n\n\n// Transição de acima para abaixo de 40\nif (umidade < 40 && estadoAnterior === \"alto\") {\n    context.set(\"estadoAlerta\", \"baixo\");\n    msg.payload = {\n        chatId: -1001971261643, // Substitua pelo seu chatId se mudar\n        type: \"message\",\n        content: `⚠️ Alerta: umidade baixa detectada: ${umidade.toFixed(2)} %`\n    };\n    return msg;\n}\n\n// Transição de abaixo para acima de 40\nif (umidade >= 40 && estadoAnterior === \"baixo\") {\n    context.set(\"estadoAlerta\", \"alto\");\n    msg.payload = {\n        chatId: -1001971261643, // Substitua pelo seu chatId se mudar\n        type: \"message\",\n        content: `⚠️ Alerta: Estado voltou ao normal: ${umidade.toFixed(2)} %`\n    };\n    return msg;\n}\n\n// Em qualquer outro caso, não envia nada\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 420,
+        "wires": [
+            [
+                "a0fcac326be81932"
+            ]
+        ]
+    },
+    {
+        "id": "0ea77d06cf9691c8",
+        "type": "telegram sender",
+        "z": "753f467e30a954c0",
+        "name": "alerta temperatura",
+        "bot": "56b1d6f61a0b7d09",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 870,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a0fcac326be81932",
+        "type": "telegram sender",
+        "z": "753f467e30a954c0",
+        "name": "alerta umidade",
+        "bot": "56b1d6f61a0b7d09",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 860,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "285b972714dfc016",
+        "type": "ui_chart",
+        "z": "753f467e30a954c0",
+        "name": "Temperatura",
+        "group": "e1339d7730eda3e7",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "Temperatura",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "dd HH:mm",
+        "interpolate": "linear",
+        "nodata": "Esperando Dados",
+        "dot": false,
+        "ymin": "18",
+        "ymax": "35",
+        "removeOlder": "4",
+        "removeOlderPoints": "1000",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 850,
+        "y": 20,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "723f6da236e83e86",
+        "type": "ui_chart",
+        "z": "753f467e30a954c0",
+        "name": "Umidade",
+        "group": "e1339d7730eda3e7",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "Umidade",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "dd HH:mm",
+        "interpolate": "linear",
+        "nodata": "Esperando Dados",
+        "dot": false,
+        "ymin": "30",
+        "ymax": "100",
+        "removeOlder": "4",
+        "removeOlderPoints": "1000",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 840,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "35d5171a9fdc4c8e",
+        "type": "comment",
+        "z": "753f467e30a954c0",
+        "name": "",
+        "info": "1 - inserir automação de acionamento do relé de ligar ventilação\n2 - inserir framework para salvar os dados ou em influxdb ou em sqlite\n3 - mensageria por telegram\n",
+        "x": 160,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "22a77394bc59d947",
+        "type": "mqtt-broker",
+        "name": "mqtt_in_ambiencia_quarto",
+        "broker": "192.168.1.7",
+        "port": 1883,
+        "clientid": "node-red",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "e1339d7730eda3e7",
+        "type": "ui_group",
+        "name": "ESP32 - Lab",
+        "tab": "92b35ee7a245e375",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "56b1d6f61a0b7d09",
+        "type": "telegram bot",
+        "botname": "brunoconter_bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": 300,
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": 6667,
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "0.0.0.0",
+        "localbotport": 8443,
+        "publicbotport": 8443,
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "92b35ee7a245e375",
+        "type": "ui_tab",
+        "name": "Quarto",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "437b0972737ad91f",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6",
+            "node-red-contrib-ui-led": "0.4.11",
+            "node-red-contrib-telegrambot": "16.3.3"
+        }
+    }
+]
